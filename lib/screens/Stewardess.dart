@@ -13,19 +13,35 @@ class _StewardessState extends State<Stewardess> {
     return Container(
        child: SafeArea(
          child: Scaffold(
+           appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          title: Text(
+            "ASK",
+            style: TextStyle(color: Colors.black),
+            ),
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+            ),
+            onPressed: () {
+            },
+          ),
+        ),
            body: GridView.count(
           crossAxisCount: 2,
           children: <Widget>[
             Card(
               margin: new EdgeInsets.all(20),
-              elevation: 1,
               color: Colors.red,
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    ImageIcon( 
+                      new AssetImage("Images/flight-attendant.png"),
+                      size: 50,
                     ),
                     Text(
                       "Call stewardess",
@@ -36,17 +52,18 @@ class _StewardessState extends State<Stewardess> {
             ),
             Card(
               margin: new EdgeInsets.all(20),
-              shape: cir,
-              color: Colors.red,
+              shape: CircleBorder(),
+              color: Colors.yellow,
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    ImageIcon( 
+                      new AssetImage("Images/man-outline-throwing-at-trash-can.png"),
+                      size: 50,
                     ),
                     Text(
-                      "Call stewardess",
+                      "Request trash pickup",
                     ),
                   ]
                 ),
@@ -54,16 +71,21 @@ class _StewardessState extends State<Stewardess> {
             ),
             Card(
               margin: new EdgeInsets.all(20),
-              color: Colors.red,
+              color: Colors.blue,
+              shape: BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(100)),
+              ),
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    Image.asset( 
+                      "Images/blanket.png",
+                      height: 50,
+                      width: 50,
                     ),
                     Text(
-                      "Call stewardess",
+                      "Request blanket",
                     ),
                   ]
                 ),
@@ -71,16 +93,17 @@ class _StewardessState extends State<Stewardess> {
             ),
             Card(
               margin: new EdgeInsets.all(20),
-              color: Colors.red,
+              color: Colors.orange,
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    ImageIcon( 
+                      new AssetImage("Images/headphone-symbol.png"),
+                      size: 50,
                     ),
                     Text(
-                      "Call stewardess",
+                      "Request Headphones",
                     ),
                   ]
                 ),
@@ -88,16 +111,17 @@ class _StewardessState extends State<Stewardess> {
             ),
             Card(
               margin: new EdgeInsets.all(20),
-              color: Colors.red,
+              color: Colors.pink,
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    ImageIcon( 
+                      new AssetImage("Images/pillow.png"),
+                      size: 50,
                     ),
                     Text(
-                      "Call stewardess",
+                      "Request Pillow",
                     ),
                   ]
                 ),
@@ -105,16 +129,18 @@ class _StewardessState extends State<Stewardess> {
             ),
             Card(
               margin: new EdgeInsets.all(20),
-              color: Colors.red,
+              color: Colors.green,
+              shape: CircleBorder(),
               child: Center( 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children:<Widget>[
-                    Icon(
-                      Icons.favorite,
+                    ImageIcon( 
+                      new AssetImage("Images/seat.png"),
+                      size: 50,
                     ),
                     Text(
-                      "Call stewardess",
+                      "Ask for seat change",
                     ),
                   ]
                 ),
