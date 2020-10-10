@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'checkoutScreen.dart';
+import 'Stewardess.dart';
 
 class MainScreen extends StatelessWidget {
   int quantity = 1;
@@ -138,6 +139,18 @@ class MainScreen extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Stewardess()));
+        },
+        backgroundColor: Colors.red,
+        child: Icon(
+          Icons.help,
+          size: 40,
+          color: Colors.white,
         ),
       ),
     );
