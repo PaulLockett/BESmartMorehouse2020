@@ -1,8 +1,9 @@
-import 'package:BESMARTHACK_app/screens/Stewardess.dart';
 import 'package:BESMARTHACK_app/screens/mainScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:dynatrace_flutter_plugin/dynatrace_flutter_plugin.dart';
 
 void main() {
+  Dynatrace().start(AASnacks());
   runApp(AASnacks());
 }
 
@@ -16,6 +17,7 @@ class AASnacks extends StatelessWidget {
       theme:
           ThemeData(primarySwatch: Colors.red, accentColor: Colors.lightBlue),
       home: MainScreen(),
+      navigatorObservers: [DynatraceNavigationObserver()],
     );
   }
 }

@@ -52,7 +52,6 @@ class MainScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 25),
                 ),
               ),
-              // TODO: Replace these cards with the list widget
               Container(
                 child: availableList(),
                 height: 450,
