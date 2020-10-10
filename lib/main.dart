@@ -1,4 +1,5 @@
 import 'package:BESMARTHACK_app/screens/Stewardess.dart';
+import 'package:BESMARTHACK_app/screens/mainScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +11,11 @@ class AASnacks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'AA Snack Station',
       theme:
           ThemeData(primarySwatch: Colors.red, accentColor: Colors.lightBlue),
-      home: SnackHome(title: 'American Airlines'),
+      home: MainScreen(),
     );
   }
 }
