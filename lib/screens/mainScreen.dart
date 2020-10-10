@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'checkoutScreen.dart';
 import 'Stewardess.dart';
 import 'package:BESMARTHACK_app/widgets/newAvailableList.dart';
+import 'package:dynatrace_flutter_plugin/dynatrace_flutter_plugin.dart';
 
 class MainScreen extends StatelessWidget {
-  int quantity = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

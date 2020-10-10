@@ -2,8 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:BESMARTHACK_app/widgets/itemList.dart';
 import 'Stewardess.dart';
 import 'package:mongo_dart/mongo_dart.dart';
+import 'package:dynatrace_flutter_plugin/dynatrace_flutter_plugin.dart';
 
 class CheckoutScreen extends StatelessWidget {
+  List<VoidCallback> actions = [
+    _merchantCheckoutAction,
+    _clickToPayAction,
+    _reportAll,
+    _forceErrors,
+    _reportCrash,
+    _flushData,
+    _tagUser,
+    _endSession,
+    _setGpsLocationHawaii,
+    _collectionOff,
+    _collectionPerformance,
+    _collectionUserBehavior,
+    _crashOptedInTrue,
+    _crashOptedInFalse,
+    () async {
+      print('Data collection level:');
+      print(await _getCollectionLevel());
+    },
+    () async {
+      print('Crash reporting enabled:');
+      print(await _getCrashReportingOptIn());
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,7 +145,7 @@ class CheckoutScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18)),
                       onPressed: () {
-                        print('Merchant Checkout');
+                        actions[0];
                       },
                       child: Text(
                         "[Merchant] Checkout",
@@ -139,7 +164,7 @@ class CheckoutScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18)),
                       onPressed: () {
-                        print('Click to Pay');
+                        actions[1];
                       },
                       child: Text(
                         "Click to Pay",
@@ -166,5 +191,89 @@ class CheckoutScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  static void _merchantCheckoutAction() {
+    DynatraceRootAction myAction = Dynatrace().enterAction("Merchant Clicked");
+    //Perform the action and whatever else is needed.
+    myAction.leaveAction();
+  }
+
+  static void _clickToPayAction() {
+    DynatraceRootAction myAction =
+        Dynatrace().enterAction("Click to Pay Clicked");
+    DynatraceAction mySubAction = myAction.enterAction("Click to Pay Clicked");
+    //Perform the action and whatever else is needed.
+    mySubAction.leaveAction();
+    myAction.leaveAction();
+  }
+
+  static void _reportAll() {
+    DynatraceRootAction myAction =
+        Dynatrace().enterAction("MyButton tapped - Report values");
+    myAction.reportStringValue("ValueNameString", "ImportantValue");
+    myAction.reportIntValue("ValueNameInt", 1234);
+    myAction.reportDoubleValue("ValueNameDouble", 123.4567);
+    myAction.reportEvent("ValueNameEvent");
+    myAction.reportError("ValueNameError", 408);
+    myAction.leaveAction();
+  }
+
+  static void _forceErrors() {
+    String input = '12,34';
+    double.parse(input);
+  }
+
+  static void _reportCrash() {
+    Dynatrace().reportCrash(
+        "FormatException", "Invalid Double", "WHOLE_STACKTRACE_AS_STRING");
+  }
+
+  static void _flushData() {
+    Dynatrace().flushEvents();
+  }
+
+  static void _tagUser() {
+    Dynatrace().identifyUser("User XY");
+  }
+
+  static void _endSession() {
+    Dynatrace().endSession();
+  }
+
+  static void _setGpsLocationHawaii() {
+    // set GPS coords to Hawaii
+    Dynatrace().setGPSLocation(19, 155);
+  }
+
+  static void _collectionOff() {
+    Dynatrace().setDataCollectionLevel(DataCollectionLevel.Off);
+  }
+
+  static void _collectionPerformance() {
+    Dynatrace().setDataCollectionLevel(DataCollectionLevel.Performance);
+  }
+
+  static void _collectionUserBehavior() {
+    Dynatrace().setDataCollectionLevel(DataCollectionLevel.User);
+  }
+
+  static void _crashOptedInTrue() {
+    Dynatrace().setCrashReportingOptedIn(true);
+  }
+
+  static void _crashOptedInFalse() {
+    Dynatrace().setCrashReportingOptedIn(false);
+  }
+
+  static Future<DataCollectionLevel> _getCollectionLevel() async {
+    Future<DataCollectionLevel> dataColLevel =
+        Dynatrace().getDataCollectionLevel();
+    return dataColLevel;
+  }
+
+  static Future<bool> _getCrashReportingOptIn() async {
+    Future<bool> crashReportingValue = Dynatrace().isCrashReportingOptedIn();
+    return crashReportingValue;
   }
 }

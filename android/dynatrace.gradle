@@ -1,0 +1,15 @@
+apply plugin: 'com.dynatrace.instrumentation'
+
+// AUTO - INSERTED
+dynatrace {
+      configurations {
+        defaultConfig {
+          autoStart{
+            applicationId 'e4b1d80f-e26b-4edb-b6c2-63031a278f84'
+            beaconUrl 'https://bf03035qpn.bf.dynatrace.com/mbeacon'
+          }
+          userOptIn true
+        }
+      }
+    }
+// AUTO - INSERTED

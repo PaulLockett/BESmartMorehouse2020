@@ -1,0 +1,31 @@
+PODS:
+  - Dynatrace (8.201.1.1002):
+    - Dynatrace/framework (= 8.201.1.1002)
+  - Dynatrace/framework (8.201.1.1002)
+  - dynatrace_flutter_plugin (0.1):
+    - Dynatrace (~> 8.201.1.1002)
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - dynatrace_flutter_plugin (from `.symlinks/plugins/dynatrace_flutter_plugin/ios`)
+  - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  trunk:
+    - Dynatrace
+
+EXTERNAL SOURCES:
+  dynatrace_flutter_plugin:
+    :path: ".symlinks/plugins/dynatrace_flutter_plugin/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  Dynatrace: 1cfb2444bc4b85bd475a57bbd4a7634d75a661a0
+  dynatrace_flutter_plugin: 577766434f24d7cf2412db6e5e61c40785d536ca
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.9.3
