@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:BESMARTHACK_app/widgets/itemList.dart';
+import 'Stewardess.dart';
 
 class CheckoutScreen extends StatelessWidget {
   @override
@@ -149,6 +150,18 @@ class CheckoutScreen extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Stewardess()));
+        },
+        backgroundColor: Colors.red,
+        child: Icon(
+          Icons.help,
+          size: 40,
+          color: Colors.white,
         ),
       ),
     );
