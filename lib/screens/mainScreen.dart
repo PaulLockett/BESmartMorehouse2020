@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
+import 'checkoutScreen.dart';
 
 class MainScreen extends StatelessWidget {
+  int quantity = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.grey,
-            size: 45,
-          ),
-          onPressed: () {},
-        ),
+        actions: [Image.asset('Images/aa.jpeg')],
         title: Column(
           children: [
             Text(
@@ -32,6 +27,7 @@ class MainScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
+      backgroundColor: Colors.blue[50],
       body: Padding(
         padding: const EdgeInsets.only(top: 10),
         child: Container(
@@ -54,9 +50,72 @@ class MainScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 25),
                 ),
               ),
-              //ItemList(),
+              // TODO: Replace these cards with the list widget
               Padding(
-                padding: EdgeInsets.all(100),
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Card(
+                  elevation: 5,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.all(10),
+                    title: Text(
+                      "Bottled Water",
+                      style: TextStyle(),
+                    ),
+                    subtitle: Text("Quantity: $quantity"),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
+                        IconButton(icon: Icon(Icons.add), onPressed: () {})
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Card(
+                  elevation: 5,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.all(10),
+                    title: Text(
+                      "Ginger Ale",
+                      style: TextStyle(),
+                    ),
+                    subtitle: Text("Quantity: $quantity"),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
+                        IconButton(icon: Icon(Icons.add), onPressed: () {})
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Card(
+                  elevation: 5,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.all(10),
+                    title: Text(
+                      "Sprite",
+                      style: TextStyle(),
+                    ),
+                    subtitle: Text("Quantity: $quantity"),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
+                        IconButton(icon: Icon(Icons.add), onPressed: () {})
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(50),
                 child: Column(
                   children: [
                     RaisedButton(
@@ -64,11 +123,14 @@ class MainScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18)),
                       onPressed: () {
-                        print('Proceed to Checkout');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CheckoutScreen()));
                       },
                       child: Text(
                         "Proceed to Checkout",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
                   ],

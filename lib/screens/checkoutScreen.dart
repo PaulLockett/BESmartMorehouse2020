@@ -6,6 +6,17 @@ class CheckoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.grey,
+            size: 45,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [Image.asset('Images/aa.jpeg')],
         title: Column(
           children: [
             Text(
@@ -67,6 +78,7 @@ class CheckoutScreen extends StatelessWidget {
                             width: 50,
                             child: TextFormField(
                               maxLength: 3,
+                              cursorColor: Colors.blue,
                               decoration: InputDecoration(
                                 counterText: "",
                                 focusedBorder: OutlineInputBorder(
@@ -98,7 +110,7 @@ class CheckoutScreen extends StatelessWidget {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.all(100),
+                padding: EdgeInsets.all(50),
                 child: Column(
                   children: [
                     RaisedButton(
@@ -110,7 +122,7 @@ class CheckoutScreen extends StatelessWidget {
                       },
                       child: Text(
                         "[Merchant] Checkout",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
                     Padding(
@@ -129,7 +141,7 @@ class CheckoutScreen extends StatelessWidget {
                       },
                       child: Text(
                         "Click to Pay",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     )
                   ],
