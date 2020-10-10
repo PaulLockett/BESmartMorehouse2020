@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'checkoutScreen.dart';
 import 'Stewardess.dart';
+import 'package:BESMARTHACK_app/widgets/newAvailableList.dart';
 
 class MainScreen extends StatelessWidget {
   int quantity = 1;
@@ -52,68 +53,10 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
               // TODO: Replace these cards with the list widget
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Card(
-                  elevation: 5,
-                  child: ListTile(
-                    contentPadding: EdgeInsets.all(10),
-                    title: Text(
-                      "Bottled Water",
-                      style: TextStyle(),
-                    ),
-                    subtitle: Text("Quantity: $quantity"),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
-                        IconButton(icon: Icon(Icons.add), onPressed: () {})
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Card(
-                  elevation: 5,
-                  child: ListTile(
-                    contentPadding: EdgeInsets.all(10),
-                    title: Text(
-                      "Ginger Ale",
-                      style: TextStyle(),
-                    ),
-                    subtitle: Text("Quantity: $quantity"),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
-                        IconButton(icon: Icon(Icons.add), onPressed: () {})
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Card(
-                  elevation: 5,
-                  child: ListTile(
-                    contentPadding: EdgeInsets.all(10),
-                    title: Text(
-                      "Sprite",
-                      style: TextStyle(),
-                    ),
-                    subtitle: Text("Quantity: $quantity"),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(icon: Icon(Icons.remove), onPressed: () {}),
-                        IconButton(icon: Icon(Icons.add), onPressed: () {})
-                      ],
-                    ),
-                  ),
-                ),
+              Container(
+                child: availableList(),
+                height: 450,
+                width: 380,
               ),
               Padding(
                 padding: EdgeInsets.all(50),
