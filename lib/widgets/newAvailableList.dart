@@ -14,7 +14,6 @@ class _availableListState extends State<availableList> {
         builder: (context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.data != null) {
-              print("------------");
               print(snapshot.data);
               return RefreshIndicator(
                 onRefresh: _getData,
@@ -89,7 +88,6 @@ class _availableListState extends State<availableList> {
     await db.open().then((value) => {print("success")});
     final collection = db.collection('refreshments');
     var items = await collection.find().toList();
-    print(items);
     return items;
   }
 }
